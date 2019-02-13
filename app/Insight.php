@@ -15,4 +15,8 @@ class Insight extends Model
         return $this->belongsTo('App\Source');
     }
 
+    public function evidence() {
+        return $this->hasMany('App\Evidence');
+    }
+
 }
