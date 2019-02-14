@@ -73,7 +73,7 @@ class EvidenceController extends Controller
         ]);
 
         if($request->finish == "true") {
-            return redirect()->action('SourceController@index');
+            return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/show');
         }
 
         return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/evidence/create');
@@ -85,9 +85,13 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function show(Evidence $evidence)
+    public function show(Source $source, Insight $insight, Evidence $evidence)
     {
-        //
+        return view('evidence.show')->with([
+            'source' => $source,
+            'insight' => $insight,
+            'evidence' => $evidence,
+        ]);
     }
 
     /**
@@ -96,9 +100,20 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evidence $evidence)
+    public function edit(Source $source, Insight $insight, Evidence $evidence)
     {
-        //
+        $allEvidence = Evidence::where([
+            ['user_id', Auth::id()],
+            ['insight_id', $insight->id]
+        ])->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('evidence.edit')->with([
+            'source' => $source,
+            'insight' => $insight,
+            'evidence' => $allEvidence,
+            'evidenceEdit' => $evidence,
+        ]);
     }
 
     /**
@@ -108,9 +123,27 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evidence $evidence)
+    public function update(Request $request, Source $source, Insight $insight, Evidence $evidence)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'quote' => 'required|max:1024',
+            'location' => 'required|max:255',
+        ]);
+
+        if($validator->fails()) {
+            return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/evidence/' . $evidence->id . '/create')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
+        $evidence->update([
+            'user_id' => Auth::id(),
+            'insight_id' => $insight->id,
+            'quote' => $request->quote,
+            'location' => $request->location,
+        ]);
+
+        return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/evidence/' . $evidence->id . '/show');
     }
 
     /**
@@ -119,8 +152,10 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evidence $evidence)
+    public function destroy(Source $source, Insight $insight, Evidence $evidence)
     {
-        //
+        $evidence->delete();
+
+        return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/show');
     }
 }

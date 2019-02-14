@@ -20,7 +20,7 @@ class CreateSourcesTable extends Migration
             $table->string('author', 255);
             $table->string('location', 255);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

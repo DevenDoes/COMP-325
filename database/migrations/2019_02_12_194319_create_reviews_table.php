@@ -20,8 +20,8 @@ class CreateReviewsTable extends Migration
             $table->string('summary', 1024);
             $table->string('application', 1024);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('source_id')->references('id')->on('sources');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('source_id')->references('id')->on('sources')->onDelete('cascade');
         });
     }
 

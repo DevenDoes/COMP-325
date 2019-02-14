@@ -22,9 +22,18 @@ class SourceController extends Controller
     public function index()
     {
         $sources = Auth::user()->sources()->get();
+        $ideaCount = array();
+        $evidenceCount = array();
+
+        foreach ($sources as $source) {
+            $ideaCount[$source->id] = $source->insights()->get()->count();
+            $evidenceCount[$source->id] = $source->evidence()->get()->count();
+        }
 
         return view('source.index')->with([
             'sources' => $sources,
+            'ideaCount' => $ideaCount,
+            'evidenceCount' => $evidenceCount,
         ]);
     }
 
@@ -65,7 +74,7 @@ class SourceController extends Controller
             'location' => $request->location,
         ]);
 
-        return redirect()->action('SourceController@index');
+        return redirect('/source/' . $source->id . '/show/');
 
     }
 
@@ -77,7 +86,12 @@ class SourceController extends Controller
      */
     public function show(Source $source)
     {
-        //
+        //dd($source->evidence()->get());
+        return view('source.show')->with([
+            'source' => $source,
+            'insights' => $source->insights()->get(),
+            'evidence' => $source->evidence()->get(),
+        ]);
     }
 
     /**
@@ -120,7 +134,7 @@ class SourceController extends Controller
             'location' => $request->location,
         ]);
 
-        return redirect()->action('SourceController@index');
+        return redirect('/source/' . $source->id . '/show/');
     }
 
     /**

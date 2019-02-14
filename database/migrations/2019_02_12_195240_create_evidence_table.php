@@ -20,8 +20,8 @@ class CreateEvidenceTable extends Migration
             $table->string('quote', 1024);
             $table->string('location', 255);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('insight_id')->references('id')->on('insights');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('insight_id')->references('id')->on('insights')->onDelete('cascade');
         });
     }
 

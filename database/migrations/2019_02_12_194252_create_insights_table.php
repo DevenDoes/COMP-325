@@ -19,8 +19,8 @@ class CreateInsightsTable extends Migration
             $table->unsignedInteger('source_id');
             $table->string('idea', 1024);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('source_id')->references('id')->on('sources');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('source_id')->references('id')->on('sources')->onDelete('cascade');
         });
     }
 

@@ -69,9 +69,13 @@ class InsightController extends Controller
      * @param  \App\Insight  $insight
      * @return \Illuminate\Http\Response
      */
-    public function show(Insight $insight)
+    public function show(Source $source, Insight $insight)
     {
-        //
+        return view('insight.show')->with([
+            'source' => $source,
+            'insight' => $insight,
+            'evidence' => $insight->evidence()->get(),
+        ]);
     }
 
     /**
@@ -80,9 +84,13 @@ class InsightController extends Controller
      * @param  \App\Insight  $insight
      * @return \Illuminate\Http\Response
      */
-    public function edit(Insight $insight)
+    public function edit(Source $source, Insight $insight)
     {
-        //
+        return view('insight.edit')->with([
+            'source' => $source,
+            'insight' => $insight,
+            'evidence' => $insight->evidence()->get(),
+        ]);
     }
 
     /**
@@ -92,9 +100,23 @@ class InsightController extends Controller
      * @param  \App\Insight  $insight
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Insight $insight)
+    public function update(Request $request, Source $source, Insight $insight)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'idea' => 'required|max:1024',
+        ]);
+
+        if($validator->fails()) {
+            return redirect('source/' . $source->id . '/insight/' . $insight->id . '/edit')
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
+        $insight->update([
+            'idea' => $request->idea,
+        ]);
+
+        return redirect('/source/' . $source->id . '/insight/' . $insight->id . '/show');
     }
 
     /**
@@ -103,8 +125,10 @@ class InsightController extends Controller
      * @param  \App\Insight  $insight
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Insight $insight)
+    public function destroy(Source $source, Insight $insight)
     {
-        //
+        $insight->delete();
+
+        return redirect('/source/' . $source->id . '/show');
     }
 }
