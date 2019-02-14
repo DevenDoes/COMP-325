@@ -8,7 +8,7 @@
     <a class="nav-link" href="/source/{{ $source->id }}/show">Source</a>
 </li>
 <li class="nav-item active">
-    <a class="nav-link text-primary" href="/source/{{ $source->id }}/insight/create">Insight</a>
+    <a class="nav-link text-white" href="/source/{{ $source->id }}/insight/create">Insight</a>
 </li>
 @endsection
 

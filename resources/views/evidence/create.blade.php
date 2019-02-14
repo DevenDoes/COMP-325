@@ -11,7 +11,7 @@
     <a class="nav-link" href="/source/{{ $source->id }}/insight/{{ $insight->id }}/show">Insight</a>
 </li>
 <li class="nav-item active">
-    <a class="nav-link text-primary" href="/source/{{ $source->id }}/insight/{{ $insight->id }}/evidence/create">Evidence</a>
+    <a class="nav-link text-white" href="/source/{{ $source->id }}/insight/{{ $insight->id }}/evidence/create">Evidence</a>
 </li>
 @endsection
 

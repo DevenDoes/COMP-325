@@ -5,7 +5,7 @@
     <a class="nav-link" href="/source">Paper</a>
 </li>
 <li class="nav-item active">
-    <a class="nav-link text-primary" href="/source/create">Source</a>
+    <a class="nav-link text-white" href="/source/create">Source</a>
 </li>
 @endsection
 

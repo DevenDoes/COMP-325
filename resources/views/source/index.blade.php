@@ -2,7 +2,7 @@
 
 @section('links')
 <li class="nav-item active">
-    <a class="nav-link text-primary" href="/source">Paper</a>
+    <a class="nav-link text-white" href="/source">Paper</a>
 </li>
 @endsection
 
