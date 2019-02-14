@@ -25,3 +25,9 @@ Route::post('/source/store', 'SourceController@store');
 Route::get('/source/{source}/edit', 'SourceController@edit');
 Route::post('/source/{source}/update', 'SourceController@update');
 Route::get('/source/{source}/destroy', 'SourceController@destroy');
+
+Route::get('/source/{source}/insight/create', 'InsightController@create');
+Route::post('/source/{source}/insight/store', 'InsightController@store');
+
+Route::get('/source/{source}/insight/{insight}/evidence/create', 'EvidenceController@create');
+Route::post('/source/{source}/insight/{insight}/evidence/store', 'EvidenceController@store');

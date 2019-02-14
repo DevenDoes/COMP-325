@@ -109,7 +109,7 @@ class SourceController extends Controller
         ]);
 
         if($validator->fails()) {
-            return redirect('source/create')
+            return redirect('source/edit')
                     ->withErrors($validator)
                     ->withInput();
         }

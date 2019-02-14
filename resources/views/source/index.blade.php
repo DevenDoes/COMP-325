@@ -19,7 +19,7 @@
             </div>
             <div class="card-footer">
                 <button class="btn btn-primary btn-sm" onclick="window.location.href = '/insight/create/{{ $source->id }}'">View Source</button>
-                <button class="btn btn-success btn-sm" onclick="window.location.href = '/insight/create/{{ $source->id }}'">Add Insights</button>
+                <button class="btn btn-success btn-sm" onclick="window.location.href = '/source/{{ $source->id }}/insight/create'">Add Insights</button>
                 <button class="btn btn-warning btn-sm" onclick="window.location.href = '/source/{{ $source->id }}/edit'">Edit Source</button>
                 <button class="btn btn-danger btn-sm" onclick="window.location.href = '/source/{{ $source->id }}/destroy'">Delete Source</button>
             </div>
