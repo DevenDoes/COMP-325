@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Source extends Model
 {
 
+    protected $fillable = ['user_id', 'title', 'author', 'location'];
+
     public function user() {
         return $this->belongsTo('App\User');
     }
