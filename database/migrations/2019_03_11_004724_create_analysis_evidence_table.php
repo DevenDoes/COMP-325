@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvidenceTable extends Migration
+class CreateAnalysisEvidenceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateEvidenceTable extends Migration
      */
     public function up()
     {
-        Schema::create('evidence', function (Blueprint $table) {
+        Schema::create('analysis_evidence', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('insight_id');
-            $table->string('quote', 1024);
-            $table->string('location', 255);
+            $table->unsignedInteger('paper_id');
+            $table->unsignedInteger('analysis_id');
+            $table->unsignedInteger('evidence_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('insight_id')->references('id')->on('insights');
+            $table->foreign('paper_id')->references('id')->on('papers');
+            $table->foreign('analysis_id')->references('id')->on('analyses');
+            $table->foreign('evidence_id')->references('id')->on('evidence');
         });
     }
 
@@ -32,6 +34,6 @@ class CreateEvidenceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evidence');
+        Schema::dropIfExists('analysis_evidence');
     }
 }

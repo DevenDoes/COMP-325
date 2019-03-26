@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInsightsTable extends Migration
+class CreateEvidenceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateInsightsTable extends Migration
      */
     public function up()
     {
-        Schema::create('insights', function (Blueprint $table) {
+        Schema::create('evidence', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('paper_id');
             $table->unsignedInteger('source_id');
-            $table->string('idea', 1024);
+            $table->text('content');
+            $table->string('location', 255);
+            $table->string('type', 255);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('paper_id')->references('id')->on('papers');
             $table->foreign('source_id')->references('id')->on('sources');
         });
     }
@@ -31,6 +35,6 @@ class CreateInsightsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insights');
+        Schema::dropIfExists('evidence');
     }
 }

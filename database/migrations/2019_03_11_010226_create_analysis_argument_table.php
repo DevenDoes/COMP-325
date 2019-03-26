@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReviewsTable extends Migration
+class CreateAnalysisArgumentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('analysis_argument', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('source_id');
-            $table->string('summary', 1024);
-            $table->string('application', 1024);
+            $table->unsignedInteger('paper_id');
+            $table->unsignedInteger('analysis_id');
+            $table->unsignedInteger('argument_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('source_id')->references('id')->on('sources');
+            $table->foreign('paper_id')->references('id')->on('papers');
+            $table->foreign('analysis_id')->references('id')->on('analyses');
+            $table->foreign('argument_id')->references('id')->on('arguments');
         });
     }
 
@@ -32,6 +34,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('analysis_argument');
     }
 }

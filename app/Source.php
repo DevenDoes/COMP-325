@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Source extends Model
 {
+    protected $fillable = ['user_id', 'paper_id', 'title', 'authors', 'location', 'type', 'medium'];
 
     public function user() {
         return $this->belongsTo('App\User');
     }
 
-    public function insights() {
-        return $this->hasMany('App\Insight');
+    public function paper() {
+        return $this->belongsTo('App\Paper');
     }
 
     public function evidence() {
-        return $this->hasManyThrough('App\Evidence', 'App\Insight');
+        return $this->hasMany('App\Evidence');
     }
 
-    public function review() {
-        return $this->hasOne('App\Review');
+    public function path() {
+        return $this->paper->path() . "/sources/{$this->id}";
     }
-
 }

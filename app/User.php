@@ -37,20 +37,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function sources() {
-        return $this->hasMany('App\Source');
+    public function papers($paper = null) {
+        if($paper) {
+            return $this->hasMany('App\Paper')->find($paper);
+        }
+        return $this->hasMany('App\Paper');
     }
 
-    public function insights() {
-        return $this->hasMany('App\Insight');
+    public function sources() {
+        return $this->hasMany('App\Source');
     }
 
     public function evidence() {
         return $this->hasMany('App\Evidence');
     }
 
-    public function reviews() {
-        return $this->hasMany('App\Review');
+    public function analyses() {
+        return $this->hasMany('App\Analysis');
+    }
+
+    public function arguments() {
+        return $this->hasMany('App\Argument');
+    }
+
+    public function outlines() {
+        return $this->hasMany('App\Outline');
+    }
+
+    public function paragraphs() {
+        return $this->hasMany('App\Paragraph');
     }
 
 }
