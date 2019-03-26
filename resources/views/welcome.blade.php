@@ -38,15 +38,15 @@
                             @csrf
                             <div class="row justify-content-center">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <input type="text" name="firstname" class="form-control" placeholder="John" aria-label="Firstname" aria-describedby="addon-wrapping">
+                                    <input type="text" name="firstname" class="form-control" placeholder="firstname" aria-label="Firstname" aria-describedby="addon-wrapping">
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <input type="text" name="lastname" class="form-control" placeholder="Doe" aria-label="Lastname" aria-describedby="addon-wrapping">
+                                    <input type="text" name="lastname" class="form-control" placeholder="lastname" aria-label="Lastname" aria-describedby="addon-wrapping">
                                 </div>
                             </div>
                             <div class="row justify-content-center">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <input type="email" name="email" class="form-control" placeholder="me@example.com" aria-label="Email" aria-describedby="addon-wrapping">
+                                    <input type="email" name="email" class="form-control" placeholder="email" aria-label="Email" aria-describedby="addon-wrapping">
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                     <select class="custom-select" name="grade" id="grade">
