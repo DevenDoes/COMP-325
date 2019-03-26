@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/', 'EarlyAccessController@store');
 
 Auth::routes();
 
