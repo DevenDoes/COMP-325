@@ -19,11 +19,7 @@ class CreateEvidenceTest extends TestCase
             'user_id' => $user->id,
             'paper_id' => $paper->id,
         ]);
-        $evidence = raw('App\Evidence', [
-            'user_id' => $user->id,
-            'paper_id' => $paper->id,
-            'source_id' => $source->id,
-        ]);
+        $evidence = raw('App\Evidence');
         $response = $this->json('POST', $source->path() . '/evidence', $evidence);
         $response->assertStatus(401);
         $this->assertDatabaseMissing('evidence', $evidence);
@@ -40,11 +36,7 @@ class CreateEvidenceTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $evidence = raw('App\Evidence', [
-            'user_id' => auth()->id(),
-            'paper_id' => $paper->id,
-            'source_id' => $source->id,
-        ]);
+        $evidence = raw('App\Evidence');
         $response = $this->json('POST', $source->path() . '/evidence', $evidence);
         $response->assertStatus(403);
         $this->assertDatabaseMissing('evidence', $evidence);
@@ -61,11 +53,7 @@ class CreateEvidenceTest extends TestCase
             'user_id' => $user->id,
             'paper_id' => $paper->id,
         ]);
-        $evidence = raw('App\Evidence', [
-            'user_id' => auth()->id(),
-            'paper_id' => $paper->id,
-            'source_id' => $source->id,
-        ]);
+        $evidence = raw('App\Evidence');
         $response = $this->json('POST', $source->path() . '/evidence', $evidence);
         $response->assertStatus(403);
         $this->assertDatabaseMissing('evidence', $evidence);
@@ -81,11 +69,7 @@ class CreateEvidenceTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $evidence = raw('App\Evidence', [
-            'user_id' => auth()->id(),
-            'paper_id' => $paper->id,
-            'source_id' => $source->id,
-        ]);
+        $evidence = raw('App\Evidence');
         $response = $this->json('POST', $source->path() . '/evidence', $evidence);
         $response->assertStatus(200);
         $this->assertDatabaseHas('evidence', $evidence);

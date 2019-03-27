@@ -31,6 +31,7 @@ class SourceController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
+        $attributes['paper_id'] = $paper->id;
 
         $paper->sources()->create($attributes);
 

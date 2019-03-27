@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paper extends Model
 {
-    protected $fillable = ['title', 'course', 'style', 'prompt'];
+    protected $fillable = ['user_id', 'title', 'course', 'style', 'prompt'];
 
     public function user() {
         return $this->belongsTo('App\User');

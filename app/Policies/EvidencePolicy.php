@@ -21,7 +21,7 @@ class EvidencePolicy
      */
     public function view(User $user, Evidence $evidence)
     {
-        //
+        return $evidence->user_id == $user->id;
     }
 
     /**
@@ -56,7 +56,7 @@ class EvidencePolicy
      */
     public function delete(User $user, Evidence $evidence)
     {
-        //
+        return $evidence->user_id == $user->id;
     }
 
     /**

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paragraph extends Model
 {
-    protected $fillable = ['paper_id', 'outline_id', 'topic'];
+    protected $fillable = ['user_id', 'paper_id', 'outline_id', 'topic'];
 
     public function user() {
         return $this->belongsTo('App\User');
@@ -22,5 +22,9 @@ class Paragraph extends Model
 
     public function analyses() {
         return $this->belongsToMany('App\Analysis')->using('App\AnalysisParagraph');
+    }
+
+    public function path() {
+        return $this->outline->path() . "/paragraphs/{$this->id}";
     }
 }

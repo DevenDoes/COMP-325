@@ -31,7 +31,7 @@ class EditEvidenceTest extends TestCase
         ];
         $response = $this->json('PATCH', $evidence->path(), $editedEvidence);
         $response->assertStatus(200);
-        tap($source->fresh(), function($evidence) use($editedEvidence) {
+        tap($evidence->fresh(), function($evidence) use($editedEvidence) {
             $this->assertEquals($editedEvidence['content'], $evidence->content);
             $this->assertEquals($editedEvidence['location'], $evidence->location);
             $this->assertEquals($editedEvidence['type'], $evidence->type);

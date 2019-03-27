@@ -31,6 +31,7 @@ class EvidenceController extends Controller
 
         $attributes['user_id'] = auth()->id();
         $attributes['paper_id'] = $paper->id;
+        $attributes['source_id'] = $source->id;
 
         $source->evidence()->create($attributes);
 
@@ -43,9 +44,11 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function show(Evidence $evidence)
+    public function show(Paper $paper, Source $source, Evidence $evidence)
     {
-        //
+        $this->authorize('view', $evidence);
+
+        return $evidence->toJson();
     }
 
     /**
@@ -76,8 +79,12 @@ class EvidenceController extends Controller
      * @param  \App\Evidence  $evidence
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evidence $evidence)
+    public function destroy(Paper $paper, Source $source, Evidence $evidence)
     {
-        //
+        $this->authorize('delete', $evidence);
+
+        $evidence->delete();
+
+        return response(200);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Outline extends Model
 {
-    protected $fillable = ['paper_id', 'thesis'];
+    protected $fillable = ['user_id', 'paper_id', 'thesis'];
 
     public function user() {
         return $this->belongsTo('App\User');
@@ -22,5 +22,9 @@ class Outline extends Model
 
     public function paragraphs() {
         return $this->hasMany('App\Paragraph');
+    }
+
+    public function path() {
+        return $this->paper->path() . "/outlines/{$this->id}";
     }
 }

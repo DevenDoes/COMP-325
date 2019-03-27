@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Analysis extends Model
 {
-    protected $fillable = ['paper_id', 'content'];
+    protected $fillable = ['user_id', 'paper_id', 'content'];
 
     public function user() {
         return $this->belongsTo('App\User');
@@ -26,5 +26,9 @@ class Analysis extends Model
 
     public function paragraphs() {
         return $this->belongsToMany('App\Paragraph')->using('App\AnalysisParagraph');
+    }
+
+    public function path() {
+        return $this->paper->path() . "/analyses/{$this->id}";
     }
 }

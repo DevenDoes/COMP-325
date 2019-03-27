@@ -5,27 +5,27 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ShowEvidenceTest extends TestCase
+class ShowParagraphTest extends TestCase
 {
     use DatabaseMigrations;
 
     /** @test */
-    public function an_authenticated_user_can_view_their_evidence() {
+    public function an_authenticated_user_can_view_their_paragraph() {
         $this->signIn();
         $paper = create('App\Paper', [
             'user_id' => auth()->id(),
         ]);
-        $source = create('App\Source', [
+        $outline = create('App\Outline', [
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $evidence = create('App\Evidence', [
+        $paragraph = create('App\Paragraph', [
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
-            'source_id' => $source->id,
+            'outline_id' => $outline->id,
         ]);
-        $response = $this->json('GET', $evidence->path(), []);
+        $response = $this->json('GET', $paragraph->path(), []);
         $response->assertStatus(200);
-        $response->assertJson($evidence->makeHidden(['paper', 'source'])->toArray());
+        $response->assertJson($paragraph->makeHidden(['paper', 'outline'])->toArray());
     }
 }

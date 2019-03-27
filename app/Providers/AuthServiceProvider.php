@@ -16,6 +16,10 @@ class AuthServiceProvider extends ServiceProvider
         'App\Paper' => 'App\Policies\PaperPolicy',
         'App\Source' => 'App\Policies\SourcePolicy',
         'App\Evidence' => 'App\Policies\EvidencePolicy',
+        'App\Analysis' => 'App\Policies\AnalysisPolicy',
+        'App\Argument' => 'App\Policies\ArgumentPolicy',
+        'App\Outline' => 'App\Policies\OutlinePolicy',
+        'App\Paragraph' => 'App\Policies\ParagraphPolicy',
     ];
 
     /**

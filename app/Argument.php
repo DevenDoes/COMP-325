@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Argument extends Model
 {
-    protected $fillable = ['paper_id', 'content'];
+    protected $fillable = ['user_id', 'paper_id', 'content'];
 
     public function user() {
         return $this->belongsTo('App\User');
@@ -22,5 +22,9 @@ class Argument extends Model
 
     public function outlines() {
         return $this->belongsToMany('App\Outline')->using('App\ArgumentOutline');
+    }
+
+    public function path() {
+        return $this->paper->path() . "/arguments/{$this->id}";
     }
 }
