@@ -15,7 +15,7 @@
 
           gtag('config', 'UA-136952252-1');
         </script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/app.css">
         <style>
         </style>
     </head>
@@ -41,7 +41,7 @@
         </nav>
         <div class="jumbotron jumbotron-fluid bg-light" style="text-align:center">
           <div class="container">
-            <h1 class="display-4 text-primary">PromptLaunch</h1>
+            <h1 class="display-4 text-primary">Write A+ Papers With Ease</h1>
             <p class="lead text-dark">A single tool for researching, brainstorming, and outlining successful academic papers</p>
           </div>
         </div>
@@ -51,7 +51,7 @@
                     @csrf
                     <input type="text" name="name" class="col-lg-3 col-md-3 col-sm-8 mr-lg-3 mr-md-3 mb-2 mt-2 form-control form-control-sm" placeholder="your name" aria-label="Name" aria-describedby="addon-wrapping">
                     <input type="text" name="email" class="col-lg-3 col-md-3 col-sm-8 mr-lg-3 mr-md-3 mb-2 mt-2 form-control form-control-sm" placeholder="your email" aria-label="Email" aria-describedby="addon-wrapping">
-                    <button class="col-lg-3 col-md-3 col-sm-8 mb-2 mt-2 btn btn-sm btn-primary text-white">Sign Me Up!</button>
+                    <button class="col-lg-3 col-md-3 col-sm-8 mb-2 mt-2 btn btn-sm btn-primary text-white">I'm Interested!</button>
                 </form>
             </div>
         </nav>
@@ -67,8 +67,8 @@
                             Research
                         </div>
                         <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch keeps track of evidence for you, letting you focus on what matters most.</p>
-                            <p class="card-text text-muted">The success of almost every academic paper you write in college will hinge on the research you conduct. Keeping track of all the evidence you collect to prevent accidental plagarism can present a serious challenge and distract you from actually writing your paper.</p>
+                            <p class="card-text mb-2">PromptLaunch keeps track of your research for you, letting you focus on what matters most.</p>
+                            <p class="card-text text-muted">Keeping track of your research for your academic papers can present a serious challenge. Between the stress of accidental plagiarism and the labor-intensive process of properly citing sources, you can spend countless hours distracted from actually writing your paper. PromptLaunch simplifies the process of conducting research by tracking the sources you pull your evidence from and giving you their citations when you need them so that you can focus on what matters most.</p>
                         </div>
                     </div>
                 </div>
@@ -78,8 +78,8 @@
                             Analyze
                         </div>
                         <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch makes it easy to assess your evidence and capture your unique ideas.</p>
-                            <p class="card-text text-muted">You can never hope to write a successful academic paper without taking the time to analyze your evidence and explain it's signifigance. </p>
+                            <p class="card-text mb-2">PromptLaunch makes it easy to capture your thoughts and identify your best ideas.</p>
+                            <p class="card-text text-muted">Capturing your unique ideas for why the research you’ve collected is significant can become a logistical nightmare for any academic paper. Both cumbersome and time consuming, keeping track of not only your ideas as they develop but the research that complements them can prove inefficient. PromptLaunch simplifies the process of analyzing your research by making it quick and easy to track your ideas and your related research at the click of a button.</p>
                         </div>
                     </div>
                 </div>
@@ -87,24 +87,27 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 p-3">
                     <div class="card">
+                        <div class="card-header">
+                            Argue
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Argue</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text mb-2">PromptLaunch makes constructing strong arguments simple, building upon the best of your research and ideas.</p>
+                            <p class="card-text text-muted"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 p-3">
                     <div class="card">
+                        <div class="card-header">
+                            Outline
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Outline</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text mb-2">PromptLaunch makes scaffolding a content-rich outline fast, making optimal use of the work you’ve done.</p>
+                            <p class="card-text text-muted"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
