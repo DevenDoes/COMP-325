@@ -16,98 +16,158 @@
           gtag('config', 'UA-136952252-1');
         </script>
         <link rel="stylesheet" href="./css/app.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <style>
         </style>
     </head>
-    <body class="bg-light">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">PromptLaunch</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#howItWorks">How It Works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#earlyAccess">Early Access</a>
-                    </li>
-                </ul>
+    <body>
+        <section class="hero is-primary is-medium is-bold">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a href="/test" class="navbar-item">
+                                PromptLaunch
+                            </a>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </nav>
-        <div class="jumbotron jumbotron-fluid bg-light" style="text-align:center">
-          <div class="container">
-            <h1 class="display-4 text-primary">Write A+ Papers With Ease</h1>
-            <p class="lead text-dark">A single tool for researching, brainstorming, and outlining successful academic papers</p>
-          </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark row justify-content-center">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">
+                        Write A+ Papers With Ease
+                    </h1>
+                    <h2 class="subtitle">
+                        A single tool for researching, brainstorming, and outlining successful academic papers
+                    </h2>
+                    <br>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-10-mobile is-10-tablet is-8-desktop">
+                            <div class="box">
+                                <form action="/" method="post">
+                                    @csrf
+                                    <div class="columns">
+                                        <div class="column">
+                                            <div class="field">
+                                                <p class="control has-icons-left">
+                                                    <input name="name" type="text" placeholder="Name" class="input" required>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-user"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <p class="control has-icons-left">
+                                                    <input name="email" type="email" placeholder="Email" class="input" required>
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fas fa-envelope"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="column is-3">
+                                            <button class="button is-primary is-fullwidth" type="submit">I'm Interested!</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered is-mobile">
+                        <div class="column is-10-mobile is-10-tablet is-8-desktop">
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <article class="message is-danger">
+                                        <div class="message-body">
+                                            {{ $error }}
+                                        </div>
+                                    </article>
+                                @endforeach
+                            @endif
+                            @isset ($success)
+                                <article class="message is-success">
+                                    <div class="message-body">
+                                        Thank you for your interest! Keep an eye out from an email from us soon!
+                                    </div>
+                                </article>
+                            @endisset
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-foot">
+
+            </div>
+        </section>
+
+        <section class="section">
             <div class="container">
-                <form class="form-inline col-12 justify-content-center" action="/" method="post">
-                    @csrf
-                    <input type="text" name="name" class="col-lg-3 col-md-3 col-sm-8 mr-lg-3 mr-md-3 mb-2 mt-2 form-control form-control-sm" placeholder="your name" aria-label="Name" aria-describedby="addon-wrapping">
-                    <input type="text" name="email" class="col-lg-3 col-md-3 col-sm-8 mr-lg-3 mr-md-3 mb-2 mt-2 form-control form-control-sm" placeholder="your email" aria-label="Email" aria-describedby="addon-wrapping">
-                    <button class="col-lg-3 col-md-3 col-sm-8 mb-2 mt-2 btn btn-sm btn-primary text-white">I'm Interested!</button>
-                </form>
-            </div>
-        </nav>
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <h2>How It Works?</h2>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 p-3">
-                    <div class="card">
-                        <div class="card-header">
-                            Research
+                <div class="box">
+                    <p class="has-text-weight-semibold has-text-centered">PromptLaunch is a free web-based tool that aims to simplify the academic writting process for undergraduate college students. While it can't write your papers for you, PromptLaunch provides a tested process that helps you plan your papers effeciently and makes writing them a breeze.</p>
+                </div>
+                <hr>
+                <div class="columns is-multiline">
+                    <div class="column is-6-desktop is-6-tablet is-12-mobile">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Research
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    The foundation of nearly every academic paper is a wealth of research used to support the author’s arguments. Recognizing this, PromptLaunch is designed with research in mind, making it easy to collect and track evidence worth remembering throughout the development of your paper.
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch keeps track of your research for you, letting you focus on what matters most.</p>
-                            <p class="card-text text-muted">Keeping track of your research for your academic papers can present a serious challenge. Between the stress of accidental plagiarism and the labor-intensive process of properly citing sources, you can spend countless hours distracted from actually writing your paper. PromptLaunch simplifies the process of conducting research by tracking the sources you pull your evidence from and giving you their citations when you need them so that you can focus on what matters most.</p>
+                    </div>
+                    <div class="column is-6-desktop is-6-tablet is-12-mobile">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Analyze
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    Research alone cannot make for a successful academic paper, so authors must provide analysis to explain how their research advances their arguments. Recognizing this, PromptLaunch is designed to make analyzing your collected research simple so that you can focus on developing your ideas.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6-desktop is-6-tablet is-12-mobile">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Argue
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    An author’s arguments are the driving force of any academic paper. Supported by a culmination of research and analyses, they connect ideas and give guidance to a paper. Recognizing this, PromptLaunch is designed to make forming arguments and identifying their supporting content a breeze.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6-desktop is-6-tablet is-12-mobile">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Outline
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    An outline allows the author to quickly prototype the structure of their paper and is designed around a synthesis of one or more arguments. Recognizing this, PromptLaunch makes efficient use of your previous work to make constructing an outline as simple as drag and drop.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 p-3">
-                    <div class="card">
-                        <div class="card-header">
-                            Analyze
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch makes it easy to capture your thoughts and identify your best ideas.</p>
-                            <p class="card-text text-muted">Capturing your unique ideas for why the research you’ve collected is significant can become a logistical nightmare for any academic paper. Both cumbersome and time consuming, keeping track of not only your ideas as they develop but the research that complements them can prove inefficient. PromptLaunch simplifies the process of analyzing your research by making it quick and easy to track your ideas and your related research at the click of a button.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 p-3">
-                    <div class="card">
-                        <div class="card-header">
-                            Argue
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch makes constructing strong arguments simple, building upon the best of your research and ideas.</p>
-                            <p class="card-text text-muted"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 p-3">
-                    <div class="card">
-                        <div class="card-header">
-                            Outline
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text mb-2">PromptLaunch makes scaffolding a content-rich outline fast, making optimal use of the work you’ve done.</p>
-                            <p class="card-text text-muted"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
     </body>
 </html>

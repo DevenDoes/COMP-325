@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class EarlyAccess extends Model
 {
-    protected $fillable = ['firstname', 'lastname', 'email', 'grade'];
+    protected $fillable = ['name', 'email'];
 }

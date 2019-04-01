@@ -15,16 +15,16 @@ class EarlyAccessController extends Controller
     public function store(Request $request)
     {
 
+        //dd($request);
+
         $attributes = $request->validate([
-            'firstname' => 'required',
-            'lastname'=> 'required',
-            'email' => 'required|email|unique:early_accesses',
-            'grade' => 'required'
+            'name' => 'required',
+            'email'=> 'required',
         ]);
 
         \App\EarlyAccess::create($attributes);
 
-        return redirect('/');
+        return view('welcome', ['success' => 'true']);
 
     }
 }
