@@ -90,7 +90,7 @@
                             @isset ($success)
                                 <article class="message is-success">
                                     <div class="message-body">
-                                        Thank you for your interest! Keep an eye out from an email from us soon!
+                                        Thank you for your interest! Keep your eye out for an email from us soon!
                                     </div>
                                 </article>
                             @endisset
