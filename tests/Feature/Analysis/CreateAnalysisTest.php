@@ -17,7 +17,7 @@ class CreateAnalysisTest extends TestCase
             'user_id' => auth()->id(),
         ]);
         $analysis = raw('App\Analysis');
-        $response = $this->json('POST', $paper->path() . '/analyses', $analysis);
+        $response = $this->json('POST', '/api' . $paper->path() . '/analyses', $analysis);
         $response->assertStatus(200);
         $this->assertDatabaseHas('analyses', $analysis);
     }

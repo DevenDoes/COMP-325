@@ -20,10 +20,10 @@ class CreateArgumentOutlineTable extends Migration
             $table->unsignedInteger('argument_id');
             $table->unsignedInteger('outline_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
-            $table->foreign('argument_id')->references('id')->on('arguments');
-            $table->foreign('outline_id')->references('id')->on('outlines');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
+            $table->foreign('argument_id')->references('id')->on('arguments')->onDelete('cascade');
+            $table->foreign('outline_id')->references('id')->on('outlines')->onDelete('cascade');
         });
     }
 

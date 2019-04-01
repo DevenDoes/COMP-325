@@ -29,7 +29,7 @@ class EditEvidenceTest extends TestCase
             'location' => 'updated location',
             'type' => 'updated type',
         ];
-        $response = $this->json('PATCH', $evidence->path(), $editedEvidence);
+        $response = $this->json('PATCH', '/api' . $evidence->path(), $editedEvidence);
         $response->assertStatus(200);
         tap($evidence->fresh(), function($evidence) use($editedEvidence) {
             $this->assertEquals($editedEvidence['content'], $evidence->content);

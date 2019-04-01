@@ -23,7 +23,7 @@ class EditOutlineTest extends TestCase
         $editedOutline = [
             'thesis' => 'updated thesis',
         ];
-        $response = $this->json('PATCH', $outline->path(), $editedOutline);
+        $response = $this->json('PATCH', '/api' . $outline->path(), $editedOutline);
         $response->assertStatus(200);
         tap($outline->fresh(), function($outline) use($editedOutline) {
             $this->assertEquals($editedOutline['thesis'], $outline->thesis);

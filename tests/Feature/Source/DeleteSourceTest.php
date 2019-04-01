@@ -19,7 +19,7 @@ class DeleteSourceTest extends TestCase
             'user_id' => $user->id,
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('DELETE', $source->path(), []);
+        $response = $this->json('DELETE', '/api' . $source->path(), []);
         $response->assertStatus(401);
         $this->assertDatabaseHas('sources', ['id' => $source->id]);
     }
@@ -35,7 +35,7 @@ class DeleteSourceTest extends TestCase
             'paper_id' => $paper->id,
         ]);
         $this->signIn();
-        $response = $this->json('DELETE', $source->path(), []);
+        $response = $this->json('DELETE', '/api' . $source->path(), []);
         $response->assertStatus(403);
         $this->assertDatabaseHas('sources', ['id' => $source->id]);
     }
@@ -50,7 +50,7 @@ class DeleteSourceTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('DELETE', $source->path(), []);
+        $response = $this->json('DELETE', '/api' . $source->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('sources', ['id' => $source->id]);
     }

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         //Create users
         factory(App\User::class, 1)->create()->each(function($user) use($evidenceCount, $analysisCount, $argumentCount) {
             //Create papers
-            factory(App\Paper::class, rand(3,5))->create([
+            factory(App\Paper::class, rand(10,12))->create([
                 'user_id' => $user->id,
             ])->each(function($paper) use($user, $evidenceCount, $analysisCount, $argumentCount) {
                 //Create sources

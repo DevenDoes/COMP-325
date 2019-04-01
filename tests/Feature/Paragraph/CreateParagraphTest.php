@@ -20,7 +20,7 @@ class CreateParagraphTest extends TestCase
             'paper_id' => $paper->id,
         ]);
         $paragraph = raw('App\Paragraph');
-        $response = $this->json('POST', $outline->path() . '/paragraphs', $paragraph);
+        $response = $this->json('POST', '/api' . $outline->path() . '/paragraphs', $paragraph);
         $response->assertStatus(200);
         $this->assertDatabaseHas('paragraphs', $paragraph);
     }

@@ -27,7 +27,7 @@ class EditParagraphTest extends TestCase
         $editedParagraph = [
             'topic' => 'updated topic',
         ];
-        $response = $this->json('PATCH', $paragraph->path(), $editedParagraph);
+        $response = $this->json('PATCH', '/api' . $paragraph->path(), $editedParagraph);
         $response->assertStatus(200);
         tap($paragraph->fresh(), function($paragraph) use($editedParagraph) {
             $this->assertEquals($editedParagraph['topic'], $paragraph->topic);

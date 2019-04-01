@@ -15,10 +15,8 @@ class CreateEarlyAccessesTable extends Migration
     {
         Schema::create('early_accesses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('name');
             $table->string('email');
-            $table->string('grade');
             $table->timestamps();
         });
     }

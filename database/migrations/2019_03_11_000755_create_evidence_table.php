@@ -22,9 +22,9 @@ class CreateEvidenceTable extends Migration
             $table->string('location', 255);
             $table->string('type', 255);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
-            $table->foreign('source_id')->references('id')->on('sources');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
+            $table->foreign('source_id')->references('id')->on('sources')->onDelete('cascade');
         });
     }
 

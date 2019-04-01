@@ -16,7 +16,7 @@ class CreateOutlineTest extends TestCase
             'user_id' => auth()->id(),
         ]);
         $outline = raw('App\Outline');
-        $response = $this->json('POST', $paper->path() . '/outlines', $outline);
+        $response = $this->json('POST', '/api' . $paper->path() . '/outlines', $outline);
         $response->assertStatus(200);
         $this->assertDatabaseHas('outlines', $outline);
     }

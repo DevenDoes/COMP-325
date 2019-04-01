@@ -17,7 +17,7 @@ class CreateArgumentTest extends TestCase
             'user_id' => auth()->id(),
         ]);
         $argument = raw('App\Argument');
-        $response = $this->json('POST', $paper->path() . '/arguments', $argument);
+        $response = $this->json('POST', '/api' . $paper->path() . '/arguments', $argument);
         $response->assertStatus(200);
         $this->assertDatabaseHas('arguments', $argument);
     }

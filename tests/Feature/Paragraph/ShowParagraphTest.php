@@ -24,7 +24,7 @@ class ShowParagraphTest extends TestCase
             'paper_id' => $paper->id,
             'outline_id' => $outline->id,
         ]);
-        $response = $this->json('GET', $paragraph->path(), []);
+        $response = $this->json('GET', '/api' . $paragraph->path(), []);
         $response->assertStatus(200);
         $response->assertJson($paragraph->makeHidden(['paper', 'outline'])->toArray());
     }

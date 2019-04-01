@@ -11,6 +11,7 @@ class ShowSourceTest extends TestCase
 
     /** @test */
     public function an_unauthenticated_user_cannot_view_a_source() {
+        //$this->withExceptionHandling();
         $user = create('App\User');
         $paper = create('App\Paper', [
             'user_id' => $user->id,
@@ -19,7 +20,7 @@ class ShowSourceTest extends TestCase
             'user_id' => $user->id,
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('GET', $source->path(), []);
+        $response = $this->json('GET', '/api' . $source->path(), []);
         $response->assertStatus(401);
     }
 
@@ -34,7 +35,7 @@ class ShowSourceTest extends TestCase
             'paper_id' => $paper->id,
         ]);
         $this->signIn();
-        $response = $this->json('GET', $source->path(), []);
+        $response = $this->json('GET', '/api' . $source->path(), []);
         $response->assertStatus(403);
     }
 
@@ -48,7 +49,7 @@ class ShowSourceTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('GET', $source->path(), []);
+        $response = $this->json('GET', '/api' . $source->path(), []);
         $response->assertStatus(200);
         $response->assertJson($source->makeHidden('paper')->toArray());
     }

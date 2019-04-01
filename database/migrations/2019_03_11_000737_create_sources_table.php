@@ -23,8 +23,8 @@ class CreateSourcesTable extends Migration
             $table->string('type', 255);
             $table->string('medium', 255);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
         });
     }
 

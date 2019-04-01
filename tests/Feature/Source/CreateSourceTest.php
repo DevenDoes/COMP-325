@@ -20,7 +20,7 @@ class CreateSourceTest extends TestCase
             'user_id' => $user->id,
         ]);
         $source = raw('App\Source');
-        $response = $this->json('POST', $paper->path() . '/sources', $source);
+        $response = $this->json('POST', '/api' . $paper->path() . '/sources', $source);
         $response->assertStatus(401);
         $this->assertDatabaseMissing('sources', $source);
     }
@@ -33,7 +33,7 @@ class CreateSourceTest extends TestCase
         ]);
         $this->signIn();
         $source = raw('App\Source');
-        $response = $this->json('POST', $paper->path() . '/sources', $source);
+        $response = $this->json('POST', '/api' . $paper->path() . '/sources', $source);
         $response->assertStatus(403);
         $this->assertDatabaseMissing('sources', $source);
     }
@@ -46,7 +46,7 @@ class CreateSourceTest extends TestCase
             'user_id' => auth()->id(),
         ]);
         $source = raw('App\Source');
-        $response = $this->json('POST', $paper->path() . '/sources', $source);
+        $response = $this->json('POST', '/api' . $paper->path() . '/sources', $source);
         $response->assertStatus(200);
         $this->assertDatabaseHas('sources', $source);
     }

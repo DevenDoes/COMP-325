@@ -20,10 +20,10 @@ class CreateAnalysisArgumentTable extends Migration
             $table->unsignedInteger('analysis_id');
             $table->unsignedInteger('argument_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
-            $table->foreign('analysis_id')->references('id')->on('analyses');
-            $table->foreign('argument_id')->references('id')->on('arguments');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
+            $table->foreign('analysis_id')->references('id')->on('analyses')->onDelete('cascade');
+            $table->foreign('argument_id')->references('id')->on('arguments')->onDelete('cascade');
         });
     }
 

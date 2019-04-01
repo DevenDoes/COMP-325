@@ -22,7 +22,7 @@ class EditAnalysisTest extends TestCase
         $editedAnalysis = [
             'content' => 'updated content',
         ];
-        $response = $this->json('PATCH', $analysis->path(), $editedAnalysis);
+        $response = $this->json('PATCH', '/api' . $analysis->path(), $editedAnalysis);
         $response->assertStatus(200);
         tap($analysis->fresh(), function($analysis) use($editedAnalysis) {
             $this->assertEquals($editedAnalysis['content'], $analysis->content);

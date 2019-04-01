@@ -21,7 +21,7 @@ class EditPaperTest extends TestCase
             'style' => 'updated style',
             'prompt' => 'updated prompt',
         ];
-        $response = $this->json('PATCH', $paper->path(), $editedPaper);
+        $response = $this->json('PATCH', '/api' . $paper->path(), $editedPaper);
         $response->assertStatus(401);
         tap($paper->fresh(), function($paper) use($editedPaper) {
             $this->assertNotEquals($editedPaper['title'], $paper->title);
@@ -44,7 +44,7 @@ class EditPaperTest extends TestCase
             'style' => 'updated style',
             'prompt' => 'updated prompt',
         ];
-        $response = $this->json('PATCH', $paper->path(), $editedPaper);
+        $response = $this->json('PATCH', '/api' . $paper->path(), $editedPaper);
         $response->assertStatus(403);
         tap($paper->fresh(), function($paper) use($editedPaper) {
             $this->assertNotEquals($editedPaper['title'], $paper->title);
@@ -66,7 +66,7 @@ class EditPaperTest extends TestCase
             'style' => 'updated style',
             'prompt' => 'updated prompt',
         ];
-        $response = $this->json('PATCH', $paper->path(), $editedPaper);
+        $response = $this->json('PATCH', '/api' . $paper->path(), $editedPaper);
         $response->assertStatus(200);
         tap($paper->fresh(), function($paper) use($editedPaper) {
             $this->assertEquals($editedPaper['title'], $paper->title);

@@ -19,8 +19,8 @@ class CreateOutlinesTable extends Migration
             $table->unsignedInteger('paper_id');
             $table->text('thesis');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
         });
     }
 

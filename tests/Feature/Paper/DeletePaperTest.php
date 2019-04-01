@@ -15,7 +15,7 @@ class DeletePaperTest extends TestCase
         $paper = create('App\Paper', [
             'user_id' => $user->id,
         ]);
-        $response = $this->json('DELETE', $paper->path(), []);
+        $response = $this->json('DELETE', '/api' . $paper->path(), []);
         $response->assertStatus(401);
         $this->assertDatabaseHas('papers', $paper->toArray());
     }
@@ -27,7 +27,7 @@ class DeletePaperTest extends TestCase
             'user_id' => $user->id,
         ]);
         $this->signIn();
-        $response = $this->json('DELETE', $paper->path(), []);
+        $response = $this->json('DELETE', '/api' . $paper->path(), []);
         $response->assertStatus(403);
         $this->assertDatabaseHas('papers', $paper->toArray());
     }
@@ -38,7 +38,7 @@ class DeletePaperTest extends TestCase
         $paper = create('App\Paper', [
             'user_id' => auth()->id(),
         ]);
-        $response = $this->json('DELETE', $paper->path(), []);
+        $response = $this->json('DELETE', '/api' . $paper->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('papers', $paper->toArray());
     }

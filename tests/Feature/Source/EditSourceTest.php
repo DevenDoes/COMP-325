@@ -30,7 +30,7 @@ class EditSourceTest extends TestCase
             'type' => 'updated type',
             'medium' => 'updated medium',
         ];
-        $response = $this->json('PATCH', $source->path(), $editedSource);
+        $response = $this->json('PATCH', '/api' . $source->path(), $editedSource);
         $response->assertStatus(401);
         tap($source->fresh(), function($source) use($editedSource) {
             $this->assertNotEquals($editedSource['title'], $source->title);
@@ -59,7 +59,7 @@ class EditSourceTest extends TestCase
             'medium' => 'updated medium',
         ];
         $this->signIn();
-        $response = $this->json('PATCH', $source->path(), $editedSource);
+        $response = $this->json('PATCH', '/api' . $source->path(), $editedSource);
         $response->assertStatus(403);
         tap($source->fresh(), function($source) use($editedSource) {
             $this->assertNotEquals($editedSource['title'], $source->title);
@@ -87,7 +87,7 @@ class EditSourceTest extends TestCase
             'type' => 'updated type',
             'medium' => 'updated medium',
         ];
-        $response = $this->json('PATCH', $source->path(), $editedSource);
+        $response = $this->json('PATCH', '/api' . $source->path(), $editedSource);
         $response->assertStatus(200);
         tap($source->fresh(), function($source) use($editedSource) {
             $this->assertEquals($editedSource['title'], $source->title);

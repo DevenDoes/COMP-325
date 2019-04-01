@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class PaperController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
+    }
+
+    public function index(Request $request)
+    {
+        return auth()->user()->papers;
     }
 
     /**
@@ -42,7 +47,7 @@ class PaperController extends Controller
     {
         $this->authorize('view', $paper);
 
-        return $paper->toJson();
+        return $paper->where('id', $paper->id)->with(['evidence', 'analyses', 'arguments', 'outlines'])->get()->toJson();
     }
 
     /**

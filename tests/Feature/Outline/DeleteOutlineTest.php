@@ -19,7 +19,7 @@ class DeleteOutlineTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('DELETE', $outline->path(), []);
+        $response = $this->json('DELETE', '/api' . $outline->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('outlines', ['id' => $outline->id]);
     }

@@ -19,7 +19,7 @@ class ShowArgumentTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('GET', $argument->path(), []);
+        $response = $this->json('GET', '/api' . $argument->path(), []);
         $response->assertStatus(200);
         $response->assertJson($argument->makeHidden('paper')->toArray());
     }

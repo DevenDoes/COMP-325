@@ -24,7 +24,7 @@ class DeleteEvidenceTest extends TestCase
             'paper_id' => $paper->id,
             'source_id' => $source->id,
         ]);
-        $response = $this->json('DELETE', $evidence->path(), []);
+        $response = $this->json('DELETE', '/api' . $evidence->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('evidence', ['id' => $evidence->id]);
     }

@@ -12,7 +12,7 @@ class CreatePaperTest extends TestCase
     /** @test */
     public function an_unauthenticated_user_cannot_create_a_paper() {
         $paper = raw('App\Paper');
-        $response = $this->json('POST', '/papers', $paper);
+        $response = $this->json('POST', '/api/papers', $paper);
         $response->assertStatus(401);
         $this->assertDatabaseMissing('papers', $paper);
     }
@@ -21,7 +21,7 @@ class CreatePaperTest extends TestCase
     public function an_authenticated_user_can_create_a_paper() {
         $this->signIn();
         $paper = raw('App\Paper');
-        $response = $this->json('POST', '/papers', $paper);
+        $response = $this->json('POST', '/api/papers', $paper);
         $response->assertStatus(200);
         $this->assertDatabaseHas('papers', $paper);
     }

@@ -19,7 +19,7 @@ class DeleteArgumentTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('DELETE', $argument->path(), []);
+        $response = $this->json('DELETE', '/api' . $argument->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('arguments', ['id' => $argument->id]);
     }

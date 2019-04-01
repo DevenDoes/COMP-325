@@ -24,7 +24,7 @@ class ShowEvidenceTest extends TestCase
             'paper_id' => $paper->id,
             'source_id' => $source->id,
         ]);
-        $response = $this->json('GET', $evidence->path(), []);
+        $response = $this->json('GET', '/api' . $evidence->path(), []);
         $response->assertStatus(200);
         $response->assertJson($evidence->makeHidden(['paper', 'source'])->toArray());
     }

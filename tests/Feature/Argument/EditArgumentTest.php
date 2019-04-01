@@ -22,7 +22,7 @@ class EditArgumentTest extends TestCase
         $editedArgument = [
             'content' => 'updated content',
         ];
-        $response = $this->json('PATCH', $argument->path(), $editedArgument);
+        $response = $this->json('PATCH', '/api' . $argument->path(), $editedArgument);
         $response->assertStatus(200);
         tap($argument->fresh(), function($argument) use($editedArgument) {
             $this->assertEquals($editedArgument['content'], $argument->content);

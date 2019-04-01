@@ -19,7 +19,7 @@ class ShowAnalysisTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('GET', $analysis->path(), []);
+        $response = $this->json('GET', '/api' . $analysis->path(), []);
         $response->assertStatus(200);
         $response->assertJson($analysis->makeHidden('paper')->toArray());
     }

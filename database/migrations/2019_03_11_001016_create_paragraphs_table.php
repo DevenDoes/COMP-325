@@ -21,10 +21,10 @@ class CreateParagraphsTable extends Migration
             $table->unsignedInteger('argument_id')->nullable();
             $table->text('topic');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('paper_id')->references('id')->on('papers');
-            $table->foreign('outline_id')->references('id')->on('outlines');
-            $table->foreign('argument_id')->references('id')->on('arguments');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('paper_id')->references('id')->on('papers')->onDelete('cascade');
+            $table->foreign('outline_id')->references('id')->on('outlines')->onDelete('cascade');
+            $table->foreign('argument_id')->references('id')->on('arguments')->onDelete('cascade');
         });
     }
 

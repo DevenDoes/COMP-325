@@ -19,7 +19,7 @@ class DeleteAnalysisTest extends TestCase
             'user_id' => auth()->id(),
             'paper_id' => $paper->id,
         ]);
-        $response = $this->json('DELETE', $analysis->path(), []);
+        $response = $this->json('DELETE', '/api' . $analysis->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('analyses', ['id' => $analysis->id]);
     }

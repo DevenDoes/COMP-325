@@ -24,7 +24,7 @@ class DeleteParagraphTest extends TestCase
             'paper_id' => $paper->id,
             'outline_id' => $outline->id,
         ]);
-        $response = $this->json('DELETE', $paragraph->path(), []);
+        $response = $this->json('DELETE', '/api' . $paragraph->path(), []);
         $response->assertStatus(200);
         $this->assertDatabaseMissing('paragraphs', ['id' => $paragraph->id]);
     }

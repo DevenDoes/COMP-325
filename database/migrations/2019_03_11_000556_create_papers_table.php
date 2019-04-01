@@ -21,7 +21,7 @@ class CreatePapersTable extends Migration
             $table->string('style', 255);
             $table->text('prompt');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

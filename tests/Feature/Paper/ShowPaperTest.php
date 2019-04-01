@@ -15,7 +15,7 @@ class ShowPaperTest extends TestCase
         $paper = create('App\Paper', [
             'user_id' => $user->id,
         ]);
-        $response = $this->json('GET', $paper->path(), []);
+        $response = $this->json('GET', '/api' . $paper->path(), []);
         $response->assertStatus(401);
         $response->assertJsonMissing($paper->toArray());
     }
@@ -27,7 +27,7 @@ class ShowPaperTest extends TestCase
             'user_id' => $user->id,
         ]);
         $this->signIn();
-        $response = $this->json('GET', $paper->path(), []);
+        $response = $this->json('GET', '/api' . $paper->path(), []);
         $response->assertStatus(403);
         $response->assertJsonMissing($paper->toArray());
     }
@@ -38,7 +38,7 @@ class ShowPaperTest extends TestCase
         $paper = create('App\Paper', [
             'user_id' => auth()->id(),
         ]);
-        $response = $this->json('GET', $paper->path(), []);
+        $response = $this->json('GET', '/api' . $paper->path(), []);
         $response->assertStatus(200);
         $response->assertJson($paper->toArray());
     }
