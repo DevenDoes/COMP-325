@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 class ArgumentController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
+    }
+
+    public function index(Paper $paper) {
+        $this->authorize('index', [Argument::class, $paper]);
+
+        return $paper->arguments->toJson();
     }
 
     /**
@@ -60,11 +66,22 @@ class ArgumentController extends Controller
 
         $attributes = $request->validate([
             'content' => 'required',
+            'selected' => 'required',
+            'deselected' => 'required',
         ]);
 
-        $attributes['user_id'] = auth()->id();
+        //$attributes['user_id'] = auth()->id();
 
         $argument->update($attributes);
+
+        $argument->analyses()->sync([]);
+
+        foreach($attributes['selected'] as $selected) {
+            $argument->analyses()->syncWithoutDetaching([$selected['id'] => [
+                'user_id' => auth()->id(),
+                'paper_id' => $paper->id,
+            ]]);
+        }
 
         return response(200);
     }
@@ -78,6 +95,8 @@ class ArgumentController extends Controller
     public function destroy(Paper $paper, Argument $argument)
     {
         $this->authorize('delete', $argument);
+
+        $argument->analyses()->sync([]);
 
         $argument->delete();
 

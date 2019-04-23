@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class OutlineController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
+    public function index(Paper $paper) {
+        $this->authorize('index', [Outline::class, $paper]);
+
+        return $paper->outlines->toJson();
+    }
+
     /**
      * Store a newly created resource in storage.
      *

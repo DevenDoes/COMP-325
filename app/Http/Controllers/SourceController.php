@@ -9,7 +9,12 @@ use Illuminate\Http\Request;
 class SourceController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
+    }
+
+    public function index(Paper $paper)
+    {
+        return $paper->sources->toJson();
     }
 
     /**
@@ -33,9 +38,9 @@ class SourceController extends Controller
         $attributes['user_id'] = auth()->id();
         $attributes['paper_id'] = $paper->id;
 
-        $paper->sources()->create($attributes);
+        $source = $paper->sources()->create($attributes);
 
-        return response(200);
+        return $source;
 
     }
 

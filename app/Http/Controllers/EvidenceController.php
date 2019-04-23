@@ -10,7 +10,13 @@ use Illuminate\Http\Request;
 class EvidenceController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
+    }
+
+    public function index(Paper $paper) {
+        $this->authorize('index', [Evidence::class, $paper]);
+
+        return $paper->evidence->toJson();
     }
 
     /**
@@ -33,9 +39,9 @@ class EvidenceController extends Controller
         $attributes['paper_id'] = $paper->id;
         $attributes['source_id'] = $source->id;
 
-        $source->evidence()->create($attributes);
+        $evidence = $source->evidence()->create($attributes);
 
-        return response(200);
+        return $evidence->toJson();
     }
 
     /**

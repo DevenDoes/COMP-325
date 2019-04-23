@@ -11,6 +11,10 @@ class ArgumentPolicy
 {
     use HandlesAuthorization;
 
+    public function index(User $user, Paper $paper) {
+        return $paper->user_id == $user->id;
+    }
+
     /**
      * Determine whether the user can view the argument.
      *

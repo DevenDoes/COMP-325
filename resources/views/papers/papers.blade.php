@@ -2,16 +2,40 @@
 
 @section('content')
 
-    <div id="app" class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-white border">
-                <li class="breadcrumb-item active text-primary" aria-current="page">Home</li>
-            </ol>
-        </nav>
-        <div class="row d-block">
-            <newpaper class="col-2 float-left"></newpaper>
-            <papers class="col-10 float-right"></papers>
-        </div>
-    </div>
+    @auth
+
+        <section class="section">
+            <div class="container">
+                <div class="box">
+                    <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumb">
+                        <ul>
+                            <li class="is-active"><a href="#" aria-current="page">Home</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="columns">
+                    <div class="column is-2">
+                        <create-paper-item></create-paper-item>
+                    </div>
+                    <div class="column">
+                        <div class="columns">
+                            <paper-list></paper-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @endauth
+
+        @guest
+
+            <section class="section">
+                <div class="box has-text-centered">
+                    You must <a href="/login">sign in</a> to view this page.
+                </div>
+            </section>
+
+        @endguest
 
 @endsection

@@ -32,9 +32,9 @@ class PaperController extends Controller
             'prompt' => 'required',
         ]);
 
-        auth()->user()->papers()->create($attributes);
+        $paper = auth()->user()->papers()->create($attributes);
 
-        return response(200);
+        return $paper;
     }
 
     /**
@@ -47,7 +47,7 @@ class PaperController extends Controller
     {
         $this->authorize('view', $paper);
 
-        return $paper->where('id', $paper->id)->with(['evidence', 'analyses', 'arguments', 'outlines'])->get()->toJson();
+        return $paper->where('id', $paper->id)->with(['evidence', 'analyses', 'arguments', 'outlines'])->first()->toJson();
     }
 
     /**

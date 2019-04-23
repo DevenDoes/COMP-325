@@ -57,7 +57,7 @@
                         Write A+ Papers With Ease
                     </h1>
                     <h2 class="subtitle">
-                        A single tool for researching, brainstorming, and outlining successful academic papers
+                        A single tool for brainstorming, organizing, and writing successful academic papers.
                     </h2>
                     <br>
                     <div class="columns is-centered is-mobile">
@@ -124,62 +124,66 @@
         <section class="section">
             <div class="container">
                 <div class="box">
-                    <p class="has-text-weight-semibold has-text-centered">PromptLaunch is a free web-based tool that aims to simplify the academic writting process for undergraduate college students. While it can't write your papers for you, PromptLaunch provides a tested process that helps you plan your papers effeciently and makes writing them a breeze.</p>
+                    <p class="has-text-centered is-size-6">PromptLaunch is a free web-based tool that aims to simplify the academic writting process for undergraduate students at UNC Chapel Hill. While it can't write your papers for you, PromptLaunch provides a tested process that helps you plan your papers efficiently and makes writing them a breeze.</p>
                 </div>
                 <hr>
                 <div class="columns is-multiline">
                     <div class="column is-6-desktop is-6-tablet is-12-mobile">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    Research
-                                </p>
-                            </header>
+                        <div class="card has-text-centered">
                             <div class="card-content">
                                 <div class="content">
-                                    The foundation of nearly every academic paper is a wealth of research used to support the author’s arguments. Recognizing this, PromptLaunch is designed with research in mind, making it easy to collect and track evidence worth remembering throughout the development of your paper.
+                                    <p class="title is-5">
+                                        Research
+                                    </p>
+                                    <hr>
+                                    <p class="is-size-6">
+                                        Collect evidence from all of your sources in a single place.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="column is-6-desktop is-6-tablet is-12-mobile">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    Analyze
-                                </p>
-                            </header>
+                        <div class="card has-text-centered">
                             <div class="card-content">
                                 <div class="content">
-                                    Research alone cannot make for a successful academic paper, so authors must provide analysis to explain how their research advances their arguments. Recognizing this, PromptLaunch is designed to make analyzing your collected research simple so that you can focus on developing your ideas.
+                                    <p class="title is-5">
+                                        Analyze
+                                    </p>
+                                    <hr>
+                                    <p class="is-size-6">
+                                        Organize evidence to support your ideas.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="column is-6-desktop is-6-tablet is-12-mobile">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    Argue
-                                </p>
-                            </header>
+                        <div class="card has-text-centered">
                             <div class="card-content">
                                 <div class="content">
-                                    An author’s arguments are the driving force of any academic paper. Supported by a culmination of research and analyses, they connect ideas and give guidance to a paper. Recognizing this, PromptLaunch is designed to make forming arguments and identifying their supporting content a breeze.
+                                    <p class="title is-5">
+                                        Argue
+                                    </p>
+                                    <hr>
+                                    <p class="is-size-6">
+                                        Craft arguments from your best ideas.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="column is-6-desktop is-6-tablet is-12-mobile">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    Outline
-                                </p>
-                            </header>
+                        <div class="card has-text-centered">
                             <div class="card-content">
                                 <div class="content">
-                                    An outline allows the author to quickly prototype the structure of their paper and is designed around a synthesis of one or more arguments. Recognizing this, PromptLaunch makes efficient use of your previous work to make constructing an outline as simple as drag and drop.
+                                    <p class="title is-5">
+                                        Outline
+                                    </p>
+                                    <hr>
+                                    <p class="is-size-6">
+                                        Draft your paper with our integrated outlining tool.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -187,5 +191,12 @@
                 </div>
             </div>
         </section>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                <strong>PromptLaunch</strong> by <a href="#">Deven Jahnke</a>.
+                </p>
+            </div>
+        </footer>
     </body>
 </html>

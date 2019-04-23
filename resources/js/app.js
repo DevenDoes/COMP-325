@@ -20,14 +20,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('papers', require('./components/Paper/Papers.vue').default);
-Vue.component('paper', require('./components/Paper/Paper.vue').default);
-Vue.component('newpaper', require('./components/Paper/NewPaper.vue').default);
-Vue.component('paperdetails', require('./components/Paper/PaperDetails.vue').default);
 Vue.component('papercontent', require('./components/Paper/PaperContent.vue').default);
-Vue.component('papernav', require('./components/Paper/PaperNav.vue').default);
-Vue.component('paperelements', require('./components/Paper/PaperElements.vue').default);
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,6 +28,20 @@ Vue.component('paperelements', require('./components/Paper/PaperElements.vue').d
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.prototype.$eventBus = new Vue()
+import PaperList from './components/Paper/PaperList'
+import CreatePaperItem from './components/Paper/CreatePaperItem'
+import SourceList from './components/Source/SourceList'
+import CreateSourceItem from './components/Source/CreateSourceItem'
+import ResearchList from './components/Research/ResearchList'
+import CreateResearchItem from './components/Research/CreateResearchItem'
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        PaperList,
+        CreatePaperItem,
+        SourceList,
+        CreateSourceItem,
+        ResearchList,
+        CreateResearchItem,
+    }
 });

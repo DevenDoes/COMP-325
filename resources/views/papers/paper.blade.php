@@ -2,28 +2,69 @@
 
 @section('content')
 
-    <div id="app" class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-white border">
-                <li class="breadcrumb-item text-secondary"><a class="text-secondary" href="/papers">Home</a></li>
-                <li class="breadcrumb-item active text-primary" aria-current="paper">Paper</li>
-            </ol>
-        </nav>
-        <div class="row d-block">
-            <div class="col-2 float-left">
-                <div class="list-group">
-                    <button class="list-group-item list-group-item-action" type="button">Research</button>
-                    <button class="list-group-item list-group-item-action" type="button">Analyze</button>
-                    <button class="list-group-item list-group-item-action" type="button">Argue</button>
-                    <button class="list-group-item list-group-item-action" type="button">Outline</button>
+    @auth
+
+        <section class="section">
+            <div class="container">
+                <div class="box">
+                    <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumb">
+                        <ul>
+                            <li class=""><a href="/papers" aria-current="page">Home</a></li>
+                            <li class="is-active"><a href="#" aria-current="page">Paper</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="columns">
+                    <div class="column is-2">
+                        <div class="box">
+                            <aside class="menu">
+                                <p class="menu-label">
+                                    Actions
+                                </p>
+                                <ul class="menu-list">
+                                    <li><a href="/papers/{{ $paper->id }}/sources">Research</a></li>
+                                    <li><a href="#">Analyze</a></li>
+                                    <li><a href="#">Argue</a></li>
+                                    <li><a href="#">Outline</a></li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                    <div class="column is-10">
+                        <div class="columns is-multiline">
+                            <div class="column is-12">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">
+                                            {{$paper->title}}
+                                        </p>
+                                    </header>
+                                    <div class="card-content">
+                                        <div class="content">
+                                            {{$paper->prompt}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-12">
+                                <papercontent paperid="{{ $paper->id }}"></papercontent>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <paperdetails class="col-10 float-right mb-3" papertitle="{{$paper->title}}" paperprompt="{{$paper->prompt}}"></paperdetails>
-            <papercontent class="col-10 float-right mb-3" paperid="{{$paper->id}}"></papercontent>
+        </section>
 
+    @endauth
 
-            <papers class="col-10 float-right"></papers>
-        </div>
-    </div>
+    @guest
+
+        <section class="section">
+            <div class="box has-text-centered">
+                You must <a href="/login">sign in</a> to view this page.
+            </div>
+        </section>
+
+    @endguest
 
 @endsection

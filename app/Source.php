@@ -17,7 +17,7 @@ class Source extends Model
     }
 
     public function evidence() {
-        return $this->hasMany('App\Evidence');
+        return $this->hasMany('App\Evidence')->latest();
     }
 
     public function path() {

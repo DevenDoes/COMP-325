@@ -11,23 +11,27 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 <body>
+    <nav class="navbar is-primary" role="navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/papers" class="navabr-item title is-4 has-text-white">
+                    PromptLaunch
+                </a>
+            </div>
+        </div>
+    </nav>
     <div id="app">
-        <nav class="navbar navbar-dark bg-primary">
-            <a href="/papers" class="navbar-brand">PromptLaunch</a>
-        </nav>
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>

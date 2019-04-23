@@ -18,3 +18,27 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+// Bulma override
+$box-radius: 0;
+$modal-content-width: 1000px;
+
+.analysis-research-selector-column {
+    max-height: 425px;
+    height: auto;
+    overflow-y: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.analysis-research-selector-column::-webkit-scrollbar { width: 0 !important }
+
+.analysis-argument-selector-column {
+    max-height: 425px;
+    height: auto;
+    overflow-y: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
+
+.analysis-argument-selector-column::-webkit-scrollbar { width: 0 !important }

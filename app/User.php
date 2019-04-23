@@ -42,7 +42,7 @@ class User extends Authenticatable
         if($paper) {
             return $this->hasMany('App\Paper')->find($paper);
         }
-        return $this->hasMany('App\Paper');
+        return $this->hasMany('App\Paper')->latest();
     }
 
     public function sources() {

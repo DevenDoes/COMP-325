@@ -13,23 +13,23 @@ class Paper extends Model
     }
 
     public function sources() {
-        return $this->hasMany('App\Source');
+        return $this->hasMany('App\Source')->latest();
     }
 
     public function evidence() {
-        return $this->hasMany('App\Evidence');
+        return $this->hasMany('App\Evidence')->latest();
     }
 
     public function analyses() {
-        return $this->hasMany('App\Analysis');
+        return $this->hasMany('App\Analysis')->with('evidence')->latest();
     }
 
     public function arguments() {
-        return $this->hasMany('App\Argument');
+        return $this->hasMany('App\Argument')->with('analyses')->latest();
     }
 
     public function outlines() {
-        return $this->hasMany('App\Outline');
+        return $this->hasMany('App\Outline')->latest();
     }
 
     public function paragraphs() {
