@@ -30,6 +30,6 @@ class signup extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.signup')->subject("PromptLaunch Signup");
+        return $this->view('mail.signup')->subject("PromptLaunch Signup")->from('contact@promptlaunch.com', 'PromptLaunch');
     }
 }
