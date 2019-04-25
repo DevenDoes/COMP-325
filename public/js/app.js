@@ -3509,6 +3509,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -41722,6 +41723,7 @@ var render = function() {
         { key: paper.id },
         [
           _c("paper-item", {
+            staticStyle: { width: "100%" },
             attrs: { paper: paper, index: index },
             on: { deletePaperItem: _vm.deletePaperItem }
           })

@@ -5,7 +5,8 @@
             <paper-item
                 :paper="paper"
                 :index="index"
-                @deletePaperItem="deletePaperItem"></paper-item>
+                @deletePaperItem="deletePaperItem"
+                style="width:100%"></paper-item>
         </div>
     </div>
 
