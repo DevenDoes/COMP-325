@@ -44,7 +44,7 @@
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
-                            <a href="/test" class="navbar-item">
+                            <a href="#" class="navbar-item">
                                 PromptLaunch
                             </a>
                         </div>
@@ -54,7 +54,7 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title">
-                        Write A+ Papers With Ease
+                        Make Writing A Breeze
                     </h1>
                     <h2 class="subtitle">
                         A single tool for brainstorming, organizing, and writing successful academic papers.
@@ -124,7 +124,7 @@
         <section class="section">
             <div class="container">
                 <div class="box">
-                    <p class="has-text-centered is-size-6">PromptLaunch is a free web-based tool that aims to simplify the academic writting process for undergraduate students at UNC Chapel Hill. While it can't write your papers for you, PromptLaunch provides a tested process that helps you plan your papers efficiently and makes writing them a breeze.</p>
+                    <p class="has-text-centered is-size-6">PromptLaunch is a free tool that simplifies undergraduate academic writing. While it won't write for you, PromptLaunch employs a unique process that makes writing a breeze.</p>
                 </div>
                 <hr>
                 <div class="columns is-multiline">
@@ -133,7 +133,7 @@
                             <div class="card-content">
                                 <div class="content">
                                     <p class="title is-5">
-                                        Research
+                                        Collect
                                     </p>
                                     <hr>
                                     <p class="is-size-6">
