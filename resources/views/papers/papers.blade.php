@@ -17,7 +17,7 @@
                     <div class="column is-2">
                         <create-paper-item></create-paper-item>
                     </div>
-                    <div class="column">
+                    <div class="column is-10">
                         <div class="columns">
                             <paper-list></paper-list>
                         </div>

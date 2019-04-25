@@ -41315,346 +41315,373 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "column", staticStyle: { width: "100%" } }, [
-    _c("div", { staticClass: "card", attrs: { id: "paper-" + _vm.id } }, [
-      _c("div", { staticClass: "card-content" }, [
-        _c("div", { staticClass: "content columns is-multiline" }, [
-          _c("div", { staticClass: "column is-12" }, [
-            _c("a", { attrs: { href: _vm.url } }, [
-              _c("p", {
-                staticClass: "title is-6",
-                domProps: { textContent: _vm._s(_vm.current.title) }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "column is-11" }, [
-            _c(
-              "div",
-              { staticClass: "field is-grouped is-grouped-multiline" },
-              [
-                _c("div", { staticClass: "control" }, [
-                  _c("div", { staticClass: "tags has-addons" }, [
-                    _c("span", { staticClass: "tag is-light" }, [
-                      _vm._v("Course")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "tag is-primary",
-                      domProps: { textContent: _vm._s(_vm.current.course) }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "control" }, [
-                  _c("div", { staticClass: "tags has-addons" }, [
-                    _c("span", { staticClass: "tag is-light" }, [
-                      _vm._v("Style")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass: "tag is-primary",
-                      domProps: { textContent: _vm._s(_vm.current.style) }
-                    })
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "column is-narrow" }, [
-            _c(
-              "div",
-              {
-                staticClass: "dropdown is-right",
-                attrs: { id: "paper-dropdown-" + _vm.id }
-              },
-              [
-                _c("div", { staticClass: "dropdown-trigger is-pulled-right" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: "",
-                        "aria-haspopup": "true",
-                        "aria-controls": "paper-dropdown-menu-" + _vm.id
-                      },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.dropdownToggle(_vm.id)
-                        }
-                      }
-                    },
-                    [_vm._m(0)]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu is-active",
-                    attrs: { id: "paper-dropdown-menu" + _vm.id, role: "menu" }
-                  },
-                  [
-                    _c("div", { staticClass: "dropdown-content" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.updateModalToggle($event)
-                            }
-                          }
-                        },
-                        [_vm._v("Update")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { href: "" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.destroy($event)
-                            }
-                          }
-                        },
-                        [_vm._v("Delete")]
-                      )
-                    ])
-                  ]
-                )
-              ]
-            )
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "modal", attrs: { id: "paper-update-modal-" + _vm.id } },
-      [
-        _c("div", { staticClass: "modal-background" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "modal-card" }, [
-          _c("header", { staticClass: "modal-card-head" }, [
-            _c("p", { staticClass: "modal-card-title" }, [
-              _vm._v("Update Paper")
+  return _c(
+    "div",
+    { staticClass: "column is-12", staticStyle: { width: "100%" } },
+    [
+      _c("div", { staticClass: "card", attrs: { id: "paper-" + _vm.id } }, [
+        _c("div", { staticClass: "card-content" }, [
+          _c("div", { staticClass: "content columns is-multiline" }, [
+            _c("div", { staticClass: "column is-12" }, [
+              _c("a", { attrs: { href: _vm.url } }, [
+                _c("p", {
+                  staticClass: "title is-6",
+                  domProps: { textContent: _vm._s(_vm.current.title) }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _c("button", {
-              staticClass: "delete",
-              attrs: { "aria-label": "close" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.updateModalToggle($event)
-                }
-              }
-            })
-          ]),
+            _c("div", { staticClass: "column is-11" }, [
+              _c(
+                "div",
+                { staticClass: "field is-grouped is-grouped-multiline" },
+                [
+                  _c("div", { staticClass: "control" }, [
+                    _c("div", { staticClass: "tags has-addons" }, [
+                      _c("span", { staticClass: "tag is-light" }, [
+                        _vm._v("Course")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "tag is-primary",
+                        domProps: { textContent: _vm._s(_vm.current.course) }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "control" }, [
+                    _c("div", { staticClass: "tags has-addons" }, [
+                      _c("span", { staticClass: "tag is-light" }, [
+                        _vm._v("Style")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "tag is-primary",
+                        domProps: { textContent: _vm._s(_vm.current.style) }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-narrow" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "dropdown is-right",
+                  attrs: { id: "paper-dropdown-" + _vm.id }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "dropdown-trigger is-pulled-right" },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "",
+                            "aria-haspopup": "true",
+                            "aria-controls": "paper-dropdown-menu-" + _vm.id
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.dropdownToggle(_vm.id)
+                            }
+                          }
+                        },
+                        [_vm._m(0)]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "dropdown-menu is-active",
+                      attrs: {
+                        id: "paper-dropdown-menu" + _vm.id,
+                        role: "menu"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "dropdown-content" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.updateModalToggle($event)
+                              }
+                            }
+                          },
+                          [_vm._v("Update")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.destroy($event)
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "modal", attrs: { id: "paper-update-modal-" + _vm.id } },
+        [
+          _c("div", { staticClass: "modal-background" }),
           _vm._v(" "),
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.update($event)
+          _c("div", { staticClass: "modal-card" }, [
+            _c("header", { staticClass: "modal-card-head" }, [
+              _c("p", { staticClass: "modal-card-title" }, [
+                _vm._v("Update Paper")
+              ]),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "delete",
+                attrs: { "aria-label": "close" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.updateModalToggle($event)
+                  }
                 }
-              }
-            },
-            [
-              _c("section", { staticClass: "modal-card-body" }, [
-                _c("div", { staticClass: "columns is-multiline" }, [
-                  _c("div", { staticClass: "column is-12" }, [
-                    _c("div", { staticClass: "field" }, [
-                      _c("label", { staticClass: "label" }, [_vm._v("Title")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "control" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.temp.title,
-                              expression: "temp.title"
-                            }
-                          ],
-                          staticClass: "input",
-                          attrs: {
-                            type: "text",
-                            id: "title",
-                            placeholder: "Title"
-                          },
-                          domProps: { value: _vm.temp.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.update($event)
+                  }
+                }
+              },
+              [
+                _c("section", { staticClass: "modal-card-body" }, [
+                  _c("div", { staticClass: "columns is-multiline" }, [
+                    _c("div", { staticClass: "column is-12" }, [
+                      _c("div", { staticClass: "field" }, [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "control" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.temp.title,
+                                expression: "temp.title"
                               }
-                              _vm.$set(_vm.temp, "title", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column is-12" }, [
-                    _c("div", { staticClass: "field" }, [
-                      _c("label", { staticClass: "label" }, [_vm._v("Prompt")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "control" }, [
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.temp.prompt,
-                              expression: "temp.prompt"
-                            }
-                          ],
-                          staticClass: "textarea",
-                          attrs: {
-                            id: "prompt",
-                            rows: "3",
-                            placeholder: "Prompt"
-                          },
-                          domProps: { value: _vm.temp.prompt },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.temp, "prompt", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column is-6" }, [
-                    _c("div", { staticClass: "field" }, [
-                      _c("label", { staticClass: "label" }, [_vm._v("Course")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "control" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.temp.course,
-                              expression: "temp.course"
-                            }
-                          ],
-                          staticClass: "input",
-                          attrs: {
-                            type: "text",
-                            id: "course",
-                            placeholder: "Course"
-                          },
-                          domProps: { value: _vm.temp.course },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.temp, "course", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column is-6" }, [
-                    _c("div", { staticClass: "field" }, [
-                      _c("label", { staticClass: "label" }, [_vm._v("Style")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "control" }, [
-                        _c("div", { staticClass: "select is-fullwidth" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.temp.style,
-                                  expression: "temp.style"
-                                }
-                              ],
-                              attrs: { id: "style" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.temp,
-                                    "style",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
+                            ],
+                            staticClass: "input",
+                            attrs: {
+                              type: "text",
+                              id: "title",
+                              placeholder: "Title"
                             },
-                            [
-                              _c("option", [_vm._v("APA")]),
-                              _vm._v(" "),
-                              _c("option", [_vm._v("CSE")]),
-                              _vm._v(" "),
-                              _c("option", [_vm._v("MLA")])
-                            ]
-                          )
+                            domProps: { value: _vm.temp.title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.temp, "title", $event.target.value)
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-12" }, [
+                      _c("div", { staticClass: "field" }, [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Prompt")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "control" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.temp.prompt,
+                                expression: "temp.prompt"
+                              }
+                            ],
+                            staticClass: "textarea",
+                            attrs: {
+                              id: "prompt",
+                              rows: "3",
+                              placeholder: "Prompt"
+                            },
+                            domProps: { value: _vm.temp.prompt },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.temp,
+                                  "prompt",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-6" }, [
+                      _c("div", { staticClass: "field" }, [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Course")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "control" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.temp.course,
+                                expression: "temp.course"
+                              }
+                            ],
+                            staticClass: "input",
+                            attrs: {
+                              type: "text",
+                              id: "course",
+                              placeholder: "Course"
+                            },
+                            domProps: { value: _vm.temp.course },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.temp,
+                                  "course",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-6" }, [
+                      _c("div", { staticClass: "field" }, [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Style")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "control" }, [
+                          _c("div", { staticClass: "select is-fullwidth" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.temp.style,
+                                    expression: "temp.style"
+                                  }
+                                ],
+                                attrs: { id: "style" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.temp,
+                                      "style",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", [_vm._v("APA")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("CSE")]),
+                                _vm._v(" "),
+                                _c("option", [_vm._v("MLA")])
+                              ]
+                            )
+                          ])
                         ])
                       ])
                     ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("footer", { staticClass: "modal-card-foot" }, [
-                _c("button", { staticClass: "button is-primary" }, [
-                  _vm._v("Update")
                 ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-secondary",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.updateModalToggle($event)
+                _c("footer", { staticClass: "modal-card-foot" }, [
+                  _c("button", { staticClass: "button is-primary" }, [
+                    _vm._v("Update")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button is-secondary",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.updateModalToggle($event)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  ])
+                    },
+                    [_vm._v("Cancel")]
+                  )
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
