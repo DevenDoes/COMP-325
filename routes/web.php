@@ -58,5 +58,15 @@ Route::get('/papers/{paper}/sources/{source}/evidence', function(App\Paper $pape
 Route::get('/papers/{paper}/analyses', function(App\Paper $paper) {
     return view('analyses.analyses', [
         'paper' => $paper,
+        'analyses' => $paper->analyses,
+        'research' => $paper->evidence,
+    ]);
+});
+
+Route::get('/papers/{paper}/arguments', function(App\Paper $paper) {
+    return view('arguments.arguments', [
+        'paper' => $paper,
+        'arguments' => $paper->arguments,
+        'analyses' => $paper->analyses,
     ]);
 });

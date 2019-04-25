@@ -46,7 +46,7 @@ export default {
     },
 
     props : {
-        paper: String,
+        paper: Number,
         argumentsList: Array,
         analysesList: Array,
     },
@@ -57,6 +57,20 @@ export default {
             leftColumn: [],
             rightColumn: [],
         }
+    },
+
+    created() {
+        for(var i = 0; i < this.argumentsList.length; i++) {
+            if((i + 2) % 2 == 0) {
+                this.leftColumn.push(this.argumentsList[i]);
+            }
+            else {
+                this.rightColumn.push(this.argumentsList[i])
+            }
+        }
+        this.$eventBus.$on('createArgumentItem', (argument) => {
+            this.addArgumentItem(argument);
+        });
     },
 
     watch: {
@@ -80,6 +94,9 @@ export default {
             else {
                 this.rightColumn.splice(argumentItem.index, 1);
             }
+        },
+        addArgumentItem(argument) {
+            this.leftColumn.unshift(argument);
         },
     },
 }

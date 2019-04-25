@@ -130,7 +130,7 @@ export default {
         },
     },
 
-    create() {
+    created() {
         let temp = [];
         this.analysesList.forEach(el => {
             this.argument.analyses.forEach(ana => {

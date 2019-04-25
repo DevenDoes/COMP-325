@@ -30,14 +30,25 @@ class ArgumentController extends Controller
 
         $attributes = $request->validate([
             'content' => 'required',
+            'selected' => 'required',
+            'deselected' => 'required',
         ]);
 
         $attributes['user_id'] = auth()->id();
         $attributes['paper_id'] = $paper->id;
 
-        $paper->arguments()->create($attributes);
+        $argument = $paper->arguments()->create($attributes);
 
-        return response(200);
+        $argument->analyses()->sync([]);
+
+        foreach($attributes['selected'] as $selected) {
+            $argument->analyses()->syncWithoutDetaching([$selected['id'] => [
+                'user_id' => auth()->id(),
+                'paper_id' => $paper->id,
+            ]]);
+        }
+
+        return $paper->arguments()->first();
     }
 
     /**

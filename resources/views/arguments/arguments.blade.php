@@ -11,23 +11,23 @@
                         <ul>
                             <li class=""><a href="/papers" aria-current="page">Home</a></li>
                             <li class=""><a href="/papers/{{ $paper->id }}" aria-current="page">Paper</a></li>
-                            <li class="is-active"><a href="#" aria-current="page">Analyses</a></li>
+                            <li class="is-active"><a href="#" aria-current="page">Arguments</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="columns">
                     <div class="column is-2">
-                        <create-analysis-item
+                        <create-argument-item
                             :paper="{{ $paper->id }}"
-                            :research-list="{{ json_encode($research) }}">
-                        </create-analysis-item>
+                            :analyses-list="{{ json_encode($analyses) }}">
+                        </create-argument-item>
                     </div>
                     <div class="column">
-                        <analysis-list
+                        <argument-list
                             :paper="{{ $paper->id }}"
-                            :analyses-list="{{ json_encode($analyses) }}"
-                            :research-list="{{ json_encode($research) }}">
-                        </analysis-list>
+                            :arguments-list="{{ json_encode($arguments) }}"
+                            :analyses-list="{{ json_encode($analyses) }}">
+                        </argument-list>
                     </div>
                 </div>
             </div>

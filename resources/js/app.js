@@ -34,6 +34,10 @@ import SourceList from './components/Source/SourceList'
 import CreateSourceItem from './components/Source/CreateSourceItem'
 import ResearchList from './components/Research/ResearchList'
 import CreateResearchItem from './components/Research/CreateResearchItem'
+import AnalysisList from './components/Analysis/AnalysisList'
+import CreateAnalysisItem from './components/Analysis/CreateAnalysisItem'
+import ArgumentList from './components/Argument/ArgumentList'
+import CreateArgumentItem from './components/Argument/CreateArgumentItem'
 const app = new Vue({
     el: '#app',
     components: {
@@ -43,5 +47,9 @@ const app = new Vue({
         CreateSourceItem,
         ResearchList,
         CreateResearchItem,
+        AnalysisList,
+        CreateAnalysisItem,
+        ArgumentList,
+        CreateArgumentItem,
     }
 });

@@ -30,14 +30,25 @@ class AnalysisController extends Controller
 
         $attributes = $request->validate([
             'content' => 'required',
+            'selected' => 'required',
+            'deselected' => 'required',
         ]);
 
         $attributes['user_id'] = auth()->id();
         $attributes['paper_id'] = $paper->id;
 
-        $paper->analyses()->create($attributes);
+        $analysis = $paper->analyses()->create($attributes);
 
-        return response(200);
+        $analysis->evidence()->sync([]);
+
+        foreach($attributes['selected'] as $selected) {
+            $analysis->evidence()->syncWithoutDetaching([$selected['id'] => [
+                'user_id' => auth()->id(),
+                'paper_id' => $paper->id,
+            ]]);
+        }
+
+        return $paper->analyses()->first();
     }
 
     /**

@@ -46,7 +46,7 @@ export default {
     },
 
     props : {
-        paper: String,
+        paper: Number,
         analysesList: Array,
         researchList: Array,
     },
@@ -57,6 +57,20 @@ export default {
             leftColumn: [],
             rightColumn: [],
         }
+    },
+
+    created() {
+        for(var i = 0; i < this.analysesList.length; i++) {
+            if((i + 2) % 2 == 0) {
+                this.leftColumn.push(this.analysesList[i]);
+            }
+            else {
+                this.rightColumn.push(this.analysesList[i])
+            }
+        }
+        this.$eventBus.$on('createAnalysisItem', (analysis) => {
+            this.addAnalysisItem(analysis);
+        });
     },
 
     watch: {
@@ -80,6 +94,9 @@ export default {
             else {
                 this.rightColumn.splice(analysisItem.index, 1);
             }
+        },
+        addAnalysisItem(analysis) {
+            this.leftColumn.unshift(analysis);
         },
     },
 }

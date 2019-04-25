@@ -14,7 +14,8 @@
                         <a @click.prevent="showArguments"><span>Arguments</span></a>
                     </li>
                     <li id="outlineTab" class="">
-                        <a @click.prevent="showOutlines"><span>Outlines</span></a>
+                        <!--<a @click.prevent="showOutlines"><span>Outlines</span></a>-->
+                        <a @click.prevent=""><span>Outlines</span></a>
                     </li>
                 </ul>
             </div>

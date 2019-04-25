@@ -23,8 +23,8 @@
                                 </p>
                                 <ul class="menu-list">
                                     <li><a href="/papers/{{ $paper->id }}/sources">Research</a></li>
-                                    <li><a href="#">Analyze</a></li>
-                                    <li><a href="#">Argue</a></li>
+                                    <li><a href="/papers/{{ $paper->id }}/analyses">Analyze</a></li>
+                                    <li><a href="/papers/{{ $paper->id }}/arguments">Argue</a></li>
                                     <li><a href="#">Outline</a></li>
                                 </ul>
                             </aside>
