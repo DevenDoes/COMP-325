@@ -1,6 +1,6 @@
 <template>
 
-    <div class="column">
+    <div class="column" style="width:100%;">
         <div class="card" :id="'paper-'+id">
             <div class="card-content">
                 <div class="content columns is-multiline">

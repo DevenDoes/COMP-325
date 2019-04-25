@@ -41315,7 +41315,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "column" }, [
+  return _c("div", { staticClass: "column", staticStyle: { width: "100%" } }, [
     _c("div", { staticClass: "card", attrs: { id: "paper-" + _vm.id } }, [
       _c("div", { staticClass: "card-content" }, [
         _c("div", { staticClass: "content columns is-multiline" }, [
