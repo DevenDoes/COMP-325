@@ -18,13 +18,19 @@
 
 </head>
 <body>
-    <nav class="navbar is-primary" role="navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="/papers" class="navabr-item title is-4 has-text-white">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <h1 class="title is-5 has-text-white">
                     PromptLaunch
-                </a>
-            </div>
+                </h1>
+            </a>
+
+            <a role="button" class="navbar-burger is-active" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
     </nav>
     <div id="app">
